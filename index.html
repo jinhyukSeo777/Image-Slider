@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="videos">
+    <video src="egypt.mp4" autoplay muted loop class=""></video>
+    <video src="seoul.mp4" autoplay muted loop class=""></video>
+    <video src="tokyo.mp4" autoplay muted loop class="active"></video>
+  </div>
+  <header class="nav">
+    <a href="#" class="logo">Word</a>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Destination</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </header>
+  <span onclick="toggleMenu();" class="menuIcon"></span>
+  <div class="content">
+    <div class="active">
+      <h2>Tokyo</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna
+        aliqua. ut enim ad minim veniam.
+      </p>
+    </div>
+    <div>
+      <h2>Egypt</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna
+        aliqua. ut enim ad minim veniam.
+      </p>
+    </div>
+    <div>
+      <h2>Seoul</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna
+        aliqua. ut enim ad minim veniam.
+      </p>
+    </div>
+  </div>
+  <ul class="icons">
+    <li><a href="#"><img src="facebook.png" alt=""></a></li>
+    <li><a href="#"><img src="twitter.png" alt=""></a></li>
+    <li><a href="#"><img src="instagram.png" alt=""></a></li>
+  </ul>
+  <ul class="control">
+    <li onclick="prevSlide(); prevText();"><img src="left.png" alt=""></li>
+    <li onclick="nextSlide(); nextText();"><img src="right.png" alt=""></li>
+  </ul>
+
+  <script>
+    const videos = document.querySelector(".videos");
+    const video = videos.getElementsByTagName("video");
+    var index = 2;
+
+    function nextSlide() {
+      video[index].classList.remove("active");
+      index = (index + 1) % video.length;
+      video[index].classList.add("active");
+      console.log(index);
+    }
+    
+    function prevSlide() {
+      video[index].classList.remove("active");
+      index = (index - 1 + video.length) % video.length;
+      video[index].classList.add("active");
+      console.log(index);
+    }
+
+    const texts = document.querySelector(".content");
+    const text = texts.getElementsByTagName("div");
+    var i = 0;
+
+    function nextText() {
+      text[i].classList.remove("active");
+      i = (i + 1) % text.length;
+      text[i].classList.add("active");
+    }
+    
+    function prevText() {
+      text[i].classList.remove("active");
+      i = (i - 1 + text.length) % text.length;
+      text[i].classList.add("active");
+    }
+
+    function toggleMenu() {
+      const menuIcon = document.querySelector(".menuIcon");
+      const nav = document.querySelector(".nav");
+      menuIcon.classList.toggle("active");
+      nav.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>

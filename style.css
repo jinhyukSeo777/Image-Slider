@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+  background-color: #000;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  box-shadow: 10px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+header .logo {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.8em;
+}
+
+header ul {
+  display: flex;
+}
+
+header ul li {
+  margin: 0 20px;
+  list-style: none;
+}
+
+header ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 4px 10px;
+}
+
+header ul li a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.content {
+  position: relative;
+  width: 700px;
+  z-index: 1;
+}
+
+.content div {
+  display: none;
+  transition: 0.5s ease-in-out;
+}
+
+.content div.active {
+  display: initial;
+}
+
+.content div h2 {
+  color: #fff;
+  font-size: 6em;
+  font-weight: 700;
+  line-height: 1em;
+}
+
+.content div p {
+  color: #fff;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.icons {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.icons li {
+  list-style: none;
+}
+
+.icons li a {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.icons li a:hover {
+  background-color: #ff0;
+}
+
+.icons li a img {
+  width: 50%;
+  height: 50%;
+}
+
+.control {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  z-index: 1;
+}
+
+.control li {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.control li:hover {
+  background-color: #f5f5f5;
+}
+
+.control li img {
+  width: 50%;
+  height: 50%;
+}
+
+.videos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.videos video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.videos video.active {
+  opacity: 1;
+}
+
+@media (max-width: 800px) {
+  body {
+    padding: 20px;
+  }
+
+  body::after {
+    width: 100%;
+  }
+
+  .menuIcon {
+    display: initial;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: #fff url(menu.png);
+    background-size: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .menuIcon.active {
+    background: #fff url(close.png);
+    background-size: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+  }
+
+  header {
+    padding: 10px 20px;
+  }
+
+  header ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    visibility: hidden;
+  }
+
+  header ul li {
+    margin: 10px;
+  }
+
+  header ul li a {
+    color: #000;
+    font-size: 1.5em;
+  }
+
+  header ul li a:hover {
+    color: #f00;
+  }
+
+  .nav.active {
+    z-index: 2;
+  }
+
+  .nav.active ul {
+    visibility: visible;
+  }
+
+  .content div {
+    text-align: center;
+  }
+
+  .content div h2 {
+    font-size: 3em;
+  }
+
+  .icons li a {
+    width: 50px;
+    height: 50px;
+  }
+
+  .control li {
+    width: 60px;
+    height: 60px;
+  }
+}
